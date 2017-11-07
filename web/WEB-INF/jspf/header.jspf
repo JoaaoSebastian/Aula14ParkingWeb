@@ -1,0 +1,16 @@
+<%@page import="com.domain.web.Database"%>
+<%@ page pageEncoding="UTF-8" %>
+<h1>Parking WebApp</h1>
+<%if(session.getAttribute("login") != null){%>
+<div>
+    <a href="stays.jsp">ESTADIAS</a> | 
+    <a href="history.jsp">HISTÓRICO</a>
+</div>
+<%}%>
+<%if(Database.getConnectionException() != null){%>
+<div style="color: red;">
+    Erro ao tentar conexão com Banco de Dados:
+    <%=Database.getConnectionException() .getMessage()%>
+</div>
+<%}%>
+<hr/>
